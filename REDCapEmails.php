@@ -8,7 +8,16 @@ class REDCapEmails extends \ExternalModules\AbstractExternalModule {
     }
 
     public function redcap_email( string $to, string $from, string $subject, string $message, $cc, $bcc, $fromName, $attachments ) {
+        global $Proj;
+        $id = $Proj->project_id;
+        if($id){
+            global $from_email;
+            $universal_email = \System::getUniversalFromAddess();
+            $parts = explode("@", $universal_email);
+            $from_email = $parts[0] . "+$id"  . "@" . $parts[1];
+        }
 
+        return TRUE;
     }
 
 

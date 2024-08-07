@@ -17,10 +17,6 @@
         }
     ],
 
-    "permissions": [
-        "redcap_email"
-    ],
-
     "enable-every-page-hooks-on-system-pages": false,
     "links": {
         "project": [
