@@ -14,7 +14,13 @@ class REDCapEmails extends \ExternalModules\AbstractExternalModule {
             global $from_email;
             $universal_email = \System::getUniversalFromAddess();
             $parts = explode("@", $universal_email);
-            $from_email = $parts[0] . "+$id"  . "@" . $parts[1];
+            $re = '/[a-zA-Z0-9\-]+\+\d+/m';
+
+            // only append pid if it was not appended before.
+            if (!preg_match($re, $parts[0])) {
+                $from_email = $parts[0] . "+$id"  . "@" . $parts[1];
+            }
+
         }
 
         return TRUE;
