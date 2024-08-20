@@ -7,7 +7,7 @@ class REDCapEmails extends \ExternalModules\AbstractExternalModule {
         // Other code to run when object is instantiated
     }
 
-    public function redcap_email( string $to, string $from, string $subject, string $message, $cc, $bcc, $fromName, $attachments ) {
+    public function redcap_email( $to, $from, $subject, $message, $cc, $bcc, $fromName, $attachments ) {
         global $Proj;
         $id = $Proj->project_id;
         if($id){
